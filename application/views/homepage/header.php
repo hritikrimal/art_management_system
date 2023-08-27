@@ -57,9 +57,10 @@
                         <a href="<?php echo base_url('Contact'); ?>" class="nav-link"><b>Contact</b></a>
 
                     </li>
+                    <!-- TODO: user login and registration -->
                     <li class="nav-item">
                         <!-- <a href="admin/login.php" class="nav-link"><b>Admin</b></a> -->
-                        <a href="<?php echo base_url('Admin'); ?>" class="nav-link"><b>Admin</b></a>
+                        <a href="<?php echo base_url('user_Login'); ?>" class="nav-link"><b>User Login</b></a>
 
                     </li>
                 </ul>

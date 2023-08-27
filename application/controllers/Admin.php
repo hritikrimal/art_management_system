@@ -8,6 +8,9 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->model("Admin_model");
+        if ($this->session->userdata('login') != '') {
+            redirect(base_url() . 'dashboard');
+        }
     }
     // view page
     public function index()
@@ -25,11 +28,12 @@ class Admin extends CI_Controller
 
             $username = $this->input->post('username');
             $password = $this->input->post('password');
+
             $user = $this->Admin_model->getadmin($username, $password);
             // var_dump($user);
             // print_r($user);
             if ($user) {
-                // $this->session->set_userdata('login', $user);
+                $this->session->set_userdata('login', $user);
                 $response['url'] = base_url('dashboard');
                 $response['success'] = true;
             } else {

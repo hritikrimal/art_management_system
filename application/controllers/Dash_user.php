@@ -1,12 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller
+class Dash_user extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        // $this->load->model("Admin_model");
         if ($this->session->userdata('login') == '') {
             redirect(base_url() . 'admin');
         }
@@ -16,11 +15,6 @@ class Dashboard extends CI_Controller
     {
 
         $this->load->view('dashboard/dashheader');
-        $this->load->view('dashboard/dashpage');
-    }
-    public function log()
-    {
-        $this->session->unset_userdata('login');
-        redirect(base_url() . 'Welcome');
+        $this->load->view('dashboard/dashuser_view');
     }
 }
