@@ -51,11 +51,12 @@
                 <div class="row mt-3">
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="info-box green-bg">
-                            <?php $query = mysqli_query($con, "Select * from tblartist");
-                            $artcount = mysqli_num_rows($query);
+                            <?php
+                            $this->db->from('tblartist');
+                            $artcount = $this->db->count_all_results();
                             ?>
                             <i class="fa fa-user"></i>
-                            <div class="count"><?php echo 5; ?></div>
+                            <div class="count"><?php echo $artcount; ?></div>
                             <div class="title"> <a class="dropdown-item">Total Artist</a></div>
                         </div>
                         <!--/.info-box-->
@@ -64,8 +65,9 @@
 
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="info-box brown-bg">
-                            <?php $query1 = mysqli_query($con, "Select * from tblenquiry where Status='' || Status is null");
-                            $uenqcount = mysqli_num_rows($query1);
+                            <?php
+                            $this->db->from('tblartist');
+                            $artcount = $this->db->count_all_results();
                             ?>
                             <i class="fa fa-file"></i>
                             <div class="count"><?php echo 10; ?></div>
@@ -75,8 +77,9 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="info-box brown-bg">
-                            <?php $query1 = mysqli_query($con, "Select * from tblenquiry where Status='Answer'");
-                            $aenqcount = mysqli_num_rows($query1);
+                            <?php
+                            $this->db->from('tblartist');
+                            $artcount = $this->db->count_all_results();
                             ?>
                             <i class="fa fa-file"></i>
                             <div class="count"><?php echo 10; ?></div>
@@ -94,11 +97,12 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="info-box dark-bg">
-                            <?php $query2 = mysqli_query($con, "Select * from tblarttype");
-                            $artcount = mysqli_num_rows($query2);
+                            <?php
+                            $this->db->from('tblarttype');
+                            $arttype = $this->db->count_all_results();
                             ?>
                             <i class="fa fa-file"></i>
-                            <div class="count"><?php echo 10 ?></div>
+                            <div class="count"><?php echo $arttype; ?></div>
                             <div class="title"> <a class="dropdown-item">Total Art Type</a></div>
                         </div>
                         <!--/.info-box-->
@@ -107,11 +111,12 @@
 
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="info-box brown-bg">
-                            <?php $query1 = mysqli_query($con, "Select * from tblartmedium");
-                            $amcount = mysqli_num_rows($query1);
+                            <?php
+                            $this->db->from('tblartmedium');
+                            $artmedium = $this->db->count_all_results();
                             ?>
                             <i class="fa fa-file"></i>
-                            <div class="count"><?php echo 10 ?></div>
+                            <div class="count"><?php echo $artmedium; ?></div>
                             <div class="title"> <a class="dropdown-item">Total Art Medium</a></div>
                         </div>
                         <!--/.info-box-->
@@ -120,11 +125,12 @@
 
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="info-box dark-bg">
-                            <?php $query2 = mysqli_query($con, "Select * from tblartproduct");
-                            $apcount = mysqli_num_rows($query2);
+                            <?php
+                            $this->db->from('tblartproduct');
+                            $artproduct = $this->db->count_all_results();
                             ?>
                             <i class="fa fa-file"></i>
-                            <div class="count"><?php echo 10 ?></div>
+                            <div class="count"><?php echo $artproduct; ?></div>
                             <div class="title"> <a class="dropdown-item">Total Art Product</a></div>
                         </div>
                         <!--/.info-box-->

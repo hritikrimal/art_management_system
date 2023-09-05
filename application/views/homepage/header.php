@@ -44,13 +44,8 @@
                         <a href="<?php echo base_url('About'); ?>" class="nav-link"><b>About</b></a>
 
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <b>Art Type</b>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <!-- Dropdown content here -->
-                        </div>
+                    <li class="nav-item">
+                        <a href="<?php echo base_url('Arttype'); ?>" class="nav-link"><b>Art Type</b></a>
                     </li>
                     <li class="nav-item">
                         <!-- <a href="contact.php" class="nav-link"><b>Contact</b></a> -->
