@@ -70,7 +70,7 @@ class Dash_artproduct extends CI_Controller
 
         // Replace 'Dash_Artproduct_model' with your actual model class
         $inserted_id = $this->Dash_Artproduct_model->insert_art($data);
-        var_dump($inserted_id);
+        // var_dump($inserted_id);
         if ($inserted_id) {
             $response['success'] = true;
         } else {

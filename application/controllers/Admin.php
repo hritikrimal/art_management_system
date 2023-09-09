@@ -16,7 +16,7 @@ class Admin extends CI_Controller
     public function index()
     {
 
-        $this->load->view('homepage/header');
+        // $this->load->view('homepage/header');
         $this->load->view('homepage/loginpage');
         $this->load->view('homepage/footer');
     }

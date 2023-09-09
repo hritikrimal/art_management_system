@@ -45,7 +45,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <a href="<?php echo base_url('Arttype'); ?>" class="nav-link"><b>Art Type</b></a>
+                        <a href="<?php echo base_url('Arttype'); ?>" class="nav-link"><b>Art</b></a>
                     </li>
                     <li class="nav-item">
                         <!-- <a href="contact.php" class="nav-link"><b>Contact</b></a> -->
@@ -55,7 +55,7 @@
                     <!-- TODO: user login and registration -->
                     <li class="nav-item">
                         <!-- <a href="admin/login.php" class="nav-link"><b>Admin</b></a> -->
-                        <a href="<?php echo base_url('user_Login'); ?>" class="nav-link"><b>User Login</b></a>
+                        <a href="<?php echo base_url('Userlogin'); ?>" class="nav-link"><b>User Login</b></a>
 
                     </li>
                 </ul>

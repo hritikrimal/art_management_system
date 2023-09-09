@@ -92,6 +92,7 @@
                                 <th scope="col">Size</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Art Produce</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -598,7 +599,11 @@
                     success: function(response) {
                         var tbody = "";
                         var i = "1";
+                        var currentDateTime = new Date(); // Get current date and time
+
                         for (var key in response) {
+                            var endDate = new Date(response[key]['EndDate'] + ' ' + response[key]['EndTime']);
+
                             tbody += "<tr>";
                             tbody += "<td>" + i++ + "</td>";
                             tbody += "<td><img src='" + response[key]['Image'] + "' height='100px' width='100px'></td>";
@@ -606,6 +611,14 @@
                             tbody += "<td>" + response[key]['Size'] + "</td>";
                             tbody += "<td>" + response[key]['Price'] + "</td>";
                             tbody += "<td>" + response[key]['ArtProduce'] + "</td>";
+
+                            // Compare endDate with current date and time
+                            if (endDate > currentDateTime) {
+                                tbody += "<td>Active</td>";
+                            } else {
+                                tbody += "<td>Expired</td>";
+                            }
+
                             tbody += `<td>
                     <div class="d-flex">
                         <a href="#" id="edit" class="btn btn-primary btn-sm m-1" value="${response[key]['ID']}">Edit</a>
@@ -618,6 +631,7 @@
                     }
                 });
             }
+
 
             fetch();
 
