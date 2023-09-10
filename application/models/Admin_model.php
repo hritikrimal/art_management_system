@@ -11,6 +11,6 @@ class Admin_model extends CI_Model
     {
         $this->db->where('UserName', $username);
         $this->db->where('Password', $password);
-        return $this->db->get('tbladmin')->row_array();
+        return $this->db->get('tbladmin')->row()->ID;
     }
 }

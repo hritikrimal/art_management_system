@@ -37,6 +37,10 @@
             padding: 0;
         }
 
+        .card {
+            margin-top: 2%;
+        }
+
         .image-cards {
             display: flex;
             flex-wrap: wrap;
@@ -92,7 +96,7 @@
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container">
         <div class="image-cards">
             <?php foreach ($images as $image) : ?>
                 <?php

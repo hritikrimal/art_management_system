@@ -39,12 +39,21 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Register</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="registers_user">
                         <input type="hidden" id="modal_id" value="">
+                        <div class="mb-2">
+                            <label for="buyerseller" class="form-label">Buyer or Seller</label>
+                            <select class="form-select" id="buyerseller">
+                                <option selected disabled>Choose</option>
+                                <option value="Buyer">Buyer</option>
+                                <option value="Seller">Seller</option>
+
+                            </select>
+                        </div>
 
                         <div class="mb-2">
                             <label for="exampleInputFirstName1" class="form-label">First Name</label>
@@ -88,13 +97,15 @@
             });
 
             $(document).on("click", "#reghere", function(e) {
+                var classification = $("#buyerseller").val();
                 var firstname = $("#firstname").val();
                 var lastname = $("#lastname").val();
                 var email = $("#email").val();
                 var address = $("#address").val();
-                var password = $("#passwords").val();
-                var repassword = $("#repassword").val();
-
+                var passwords = $("#passwords").val();
+                var repasswords = $("#repassword").val();
+                // alert(passwords);
+                // alert(repasswords);
                 if (firstname == "") {
                     alert("First Name is required");
                     return false;
@@ -111,20 +122,41 @@
                     alert("Address is required");
                     return false;
                 }
-                if (password == "") { // Remove the extra space here
+                if (passwords == "") { // Remove the extra space here
                     alert("Password is required");
                     return false;
                 }
-                if (repassword == "") { // Remove the extra space here
+                if (repasswords == "") { // Remove the extra space here
                     alert("Confirm Password is required");
                     return false;
                 }
 
                 // Check if passwords match
-                if (password !== repassword) {
+                if (passwords !== repasswords) {
                     alert("Passwords do not match");
                     return false;
                 }
+                $.ajax({
+                    url: "Userlogin/register",
+                    dataType: "json",
+                    type: "post",
+                    data: {
+                        classification: classification,
+                        firstname: firstname,
+                        lastname: lastname,
+                        email: email,
+                        address: address,
+                        passwords: passwords,
+                        repasswords: repasswords
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $("#userregister").modal("hide");
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                });
 
             });
         </script>
